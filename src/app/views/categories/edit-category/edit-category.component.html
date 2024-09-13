@@ -1,0 +1,17 @@
+<h1>Edit Category</h1>
+<form cForm [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="my-3">
+    <label cLabel for="categoryName">Name</label>
+    <input cFormControl formControlName="name" id="categoryName" type="text" />
+  </div>
+  <div class="mb-3">
+    <label cLabel for="categoryDescription">Description</label>
+    <textarea
+      cFormControl
+      formControlName="description"
+      id="categoryDescription"
+      type="text"
+    ></textarea>
+  </div>
+  <input cButton color="primary" type="submit" />
+</form>
