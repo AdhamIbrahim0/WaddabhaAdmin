@@ -17,18 +17,18 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-menu' },
   },
   {
-    name: 'Services',
+    name: 'Pending Services',
     url: '/services',
     iconComponent: { name: 'cil-briefcase', content: cilBriefcase },
   },
-  {
-    name: 'Contracts',
-    url: '/contracts',
-    iconComponent: { name: 'cil-pen-alt', content: cilPenAlt },
-  },
-  {
-    name: 'Users',
-    url: '/users',
-    iconComponent: { name: 'cil-user' },
-  },
+  // {
+  //   name: 'Contracts',
+  //   url: '/contracts',
+  //   iconComponent: { name: 'cil-pen-alt', content: cilPenAlt },
+  // },
+  // {
+  //   name: 'Users',
+  //   url: '/users',
+  //   iconComponent: { name: 'cil-user' },
+  // },
 ];

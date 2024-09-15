@@ -1,1 +1,30 @@
-<p>services works!</p>
+<table [striped]="true" cTable>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Details</th>
+      <!-- <th scope="col">Delete</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    @for (service of services; track $index) {
+    <tr>
+      <th scope="row">{{ $index + 1 }}</th>
+      <td>{{ service.name }}</td>
+      <td>{{ service.seller.userName }}</td>
+      <td>
+        <button cButton color="primary" routerLink="{{ service.id }}">
+          Details
+        </button>
+      </td>
+      <!-- <td>
+        <button cButton color="danger" (click)="deleteService(service.id)">
+          Delete
+        </button>
+      </td> -->
+    </tr>
+    }
+  </tbody>
+</table>

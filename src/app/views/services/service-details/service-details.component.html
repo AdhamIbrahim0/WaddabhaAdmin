@@ -1,0 +1,20 @@
+<c-card>
+  <!-- <img cCardImg="top" [src]="service.images[0]" /> -->
+  <c-card-body>
+    <p cCardText><strong>Category:</strong> {{ service.category.name }}</p>
+    <p cCardText><strong>Name:</strong> {{ service.name }}</p>
+    <p cCardText><strong>Description:</strong> {{ service.description }}</p>
+    <p cCardText><strong>Seller:</strong> {{ service.seller.userName }}</p>
+    <p cCardText><strong>Initial Price:</strong> {{ service.initialPrice }}</p>
+    <p cCardText>
+      <strong>Buyer Instructions:</strong> {{ service.buyerInstructions }}
+    </p>
+    <p cCardText><strong>Status:</strong> {{ service.status }}</p>
+    <p cCardText><strong>Buyers Count:</strong> {{ service.buyersCount }}</p>
+    <p cCardText><strong>Rating:</strong> {{ service.rating }}</p>
+    <button cButton color="success" (click)="approveService()">Approve</button>
+    <button cButton color="danger" class="ms-1" (click)="rejectService()">
+      Reject
+    </button>
+  </c-card-body>
+</c-card>

@@ -20,6 +20,16 @@ export const routes: Routes = [
           title: 'Services List',
         },
       },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./service-details/service-details.component').then(
+            (m) => m.ServiceDetailsComponent
+          ),
+        data: {
+          title: 'Service Details',
+        },
+      },
     ],
   },
 ];
