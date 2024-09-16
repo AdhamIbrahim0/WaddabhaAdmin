@@ -13,5 +13,17 @@
       type="text"
     ></textarea>
   </div>
+  <div class="mb-3">
+    <label cLabel for="formFile">Default file input example</label>
+    <input
+      cFormControl
+      type="file"
+      name="image"
+      id="image"
+      required
+      accept="image/*"
+      (change)="onFileChange($event)"
+    />
+  </div>
   <input cButton color="primary" type="submit" />
 </form>

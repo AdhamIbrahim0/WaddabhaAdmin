@@ -18,7 +18,7 @@ export class CategoriesService {
     return this.http.get(this.baseUrl + `/${id}`);
   }
 
-  addCategory(category: Category): Observable<any> {
+  addCategory(category: FormData): Observable<any> {
     return this.http.post(this.baseUrl, category);
   }
 
