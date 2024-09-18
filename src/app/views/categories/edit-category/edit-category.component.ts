@@ -38,15 +38,21 @@ export class EditCategoryComponent {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       description: ['', [Validators.required, Validators.minLength(2)]],
+      image: [null, [Validators.required]],
     });
   }
 
   onSubmit(): void {
     if (this.form.valid) {
-      const category = this.form.value as Category;
-      category.id = this.id;
-      category.image = { imageUrl: 'test.jpg', publicId: '123' };
-      this.editCategory(category);
+      const formData = new FormData();
+      formData.append('id', this.id);
+      formData.append('name', this.form.get('name')?.value);
+      formData.append('description', this.form.get('description')?.value);
+      const imageFile = this.form.get('image')?.value;
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+      this.editCategory(formData);
     } else {
       Swal.fire({
         title: 'Invalid Data',
@@ -54,6 +60,29 @@ export class EditCategoryComponent {
         icon: 'warning',
         confirmButtonText: 'Ok',
       });
+    }
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (
+      file.type == 'image/png' ||
+      file.type == 'image/jpg' ||
+      file.type == 'image/jpeg'
+    ) {
+      if (file) {
+        this.form.patchValue({
+          image: file,
+        });
+        this.form.get('image')?.updateValueAndValidity();
+        const reader = new FileReader();
+        // reader.onload = (e: any) => {
+        //   this.imagePreview = e.target.result;
+        // };
+        reader.readAsDataURL(file);
+      }
+    } else {
+      //  this.imageValidErr = "file extension must jpg or png and jpeg";
     }
   }
 
@@ -73,7 +102,7 @@ export class EditCategoryComponent {
     });
   }
 
-  editCategory(category: Category): void {
+  editCategory(category: FormData): void {
     this.categoriesService.editCategory(category).subscribe({
       next: (res) => {
         Swal.fire({

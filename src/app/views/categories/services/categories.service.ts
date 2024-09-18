@@ -22,8 +22,8 @@ export class CategoriesService {
     return this.http.post(this.baseUrl, category);
   }
 
-  editCategory(category: Category): Observable<any> {
-    return this.http.put(this.baseUrl + `/${category.id}`, category);
+  editCategory(category: FormData): Observable<any> {
+    return this.http.put(this.baseUrl + `/${category.get('id')}`, category);
   }
 
   deleteCategory(id: string): Observable<any> {

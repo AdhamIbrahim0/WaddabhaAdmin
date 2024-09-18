@@ -45,7 +45,6 @@ export class AddCategoryComponent implements OnInit {
       formData.append('name', this.form.get('name')?.value);
       formData.append('description', this.form.get('description')?.value);
       const imageFile = this.form.get('image')?.value;
-      console.log(imageFile);
       if (imageFile) {
         formData.append('image', imageFile);
       }
